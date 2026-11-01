@@ -1,38 +1,40 @@
-# F00.01 — Data Lifecycle: Knowledge Summary
+## Duplicate Events, Deduplication & Idempotency
 
-## Learning objectives
-- Explain the stages of a data lifecycle.
-- Distinguish event-level records from order-level records.
-- Explain raw versus curated datasets and basic quality controls.
-- Separate Data Engineering responsibilities from Data Analytics responsibilities.
+### 1. Duplicate Event
 
-## Core concepts
-**Data lifecycle** describes how data is generated, ingested, stored, processed, served/analyzed, and retained, archived, or deleted. The order varies by architecture: transformation can occur before or after storage.
+Duplicate Event xảy ra khi cùng một sự kiện logic được ghi nhận hoặc chuyển đến nhiều lần.
 
-**Data Engineering** builds and operates reliable ingestion, storage, transformation, and serving systems. **Data Analytics** defines business questions and metrics, analyzes datasets, and communicates findings with appropriate caveats.
+Ví dụ: Hệ thống thanh toán gửi lại sự kiện `E101` do không nhận được xác nhận từ hệ thống tiếp nhận.
 
-**Raw data** preserves source records and useful metadata for auditing/reprocessing, subject to access controls and retention rules. **Curated data** is validated and transformed for specific consumers and documented business definitions.
+### 2. Deduplication
 
-**Data grain** is what one row represents. One row per order event differs from one row per order. Multiple events with the same order ID may be valid; deduplication requires an event identity or clear source/business rules.
+Deduplication là quá trình nhận diện và xử lý các bản ghi trùng theo một quy tắc xác định.
 
-**Data quality** includes completeness, validity, uniqueness (at the defined grain), consistency, timeliness, and accuracy. Tests and monitoring should cover important assumptions.
+Để nhận diện duplicate cần:
 
-## Worked example
-An order O101 has `completed` event E01 for 500,000 VND and a retried copy E03; O102 has `completed` for 300,000 VND then `refunded` for 300,000 VND; O103 is `cancelled` before completion. If E03 is confirmed to be a retry and refunds are full, illustrative net revenue is **500,000 VND**. Never simply sum all event amounts. Actual revenue reporting depends on agreed accounting and business definitions.
+1. Xác định Data Grain: Mỗi dòng đại diện cho điều gì?
+2. Xác định khóa định danh sự kiện.
+3. Kiểm tra các bản ghi trùng và tính nhất quán của dữ liệu.
+4. Áp dụng quy tắc xử lý phù hợp.
 
-## Design questions before writing SQL
-1. What does each row represent (grain)?
-2. What is the source and event identity?
-3. Which timestamps or versions determine ordering?
-4. What business rules define the metric?
-5. What quality, security, and retention requirements apply?
+**Lưu ý:** Hai sự kiện có cùng `order_id` chưa chắc là duplicate. Một đơn hàng có thể có nhiều sự kiện hợp lệ.
 
-## Common pitfalls
-- Assuming repeated `order_id` always means duplicate.
-- Assuming larger event IDs imply later event time.
-- Deleting raw data without retention/recovery considerations.
-- Summing event amounts as if every event were a sale.
-- Defining revenue without specifying refunds and reporting period.
+### 3. Idempotency
 
-## Completion criteria
-Theory assessment ≥8/10, guided exercise checked, artifacts reviewed, commit pushed.
+Idempotency là tính chất của một thao tác mà khi thực hiện lặp lại với cùng đầu vào, trạng thái kết quả vẫn giống như thực hiện một lần.
+
+Ví dụ: Xử lý lại cùng một sự kiện thanh toán không được ghi nhận doanh thu hai lần.
+
+### 4. Persistent State
+
+Dữ liệu chỉ lưu trong bộ nhớ chương trình thường bị mất khi tiến trình kết thúc.
+
+Đối với pipeline cần khôi phục sau sự cố, thông tin về các sự kiện đã xử lý có thể cần được lưu bền vững, chẳng hạn trong database.
+
+### 5. Các nguyên tắc cần nhớ
+
+- Không xóa dữ liệu chỉ vì trùng `order_id`.
+- Phải hiểu Data Grain trước khi deduplicate.
+- Duplicate delivery có thể xảy ra khi hệ thống retry.
+- Deduplication trong bộ nhớ không đủ để bảo đảm xử lý an toàn qua các lần khởi động.
+- Có thể sử dụng database transaction và unique constraint để xây dựng cơ chế xử lý idempotent.
