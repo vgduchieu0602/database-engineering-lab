@@ -12,13 +12,13 @@ Một pipeline có thể đọc nhiều đơn hàng, nhưng nếu chưa hiểu b
 
 | Thứ tự | Concept | Trọng tâm | Tài liệu |
 |---|---|---|---|
-| 01 | Variables & Data Types | \`str\`, \`int\`, \`float\`, \`bool\`, \`None\`, gán và so sánh | [Knowledge summary](01-variables-and-types/knowledge-summary.md) · [Code mẫu](01-variables-and-types/exercises.py) |
-| 02 | Python List | Index, slicing, \`append\`, \`len\`, mutable | [Knowledge summary](02-lists/knowledge-summary.md) · [Code mẫu](02-lists/exercises.py) |
-| 03 | Python Dictionary | Key-value, \`[]\`, \`get()\`, key thiếu, cập nhật | [Knowledge summary](03-dictionaries/knowledge-summary.md) · [Code mẫu](03-dictionaries/exercises.py) |
-| 04 | Python \`for\` Loop | Duyệt List chứa Dictionary, \`if\`, \`and\`, cộng dồn | [Knowledge summary](04-loops/knowledge-summary.md) · [Bài thực hành](04-loops/exercises.py) |
-| 05 | Python \`while\` Loop | Điều kiện lặp, cập nhật trạng thái, tránh lặp vô hạn | Sẽ tạo khi học |
+| 01 | Variables & Data Types | `str`, `int`, `float`, `bool`, `None`, gán và so sánh | [Knowledge summary](01-variables-and-types/knowledge-summary.md) · [Code mẫu](01-variables-and-types/exercises.py) |
+| 02 | Python List | Index, slicing, `append`, `len`, mutable | [Knowledge summary](02-lists/knowledge-summary.md) · [Code mẫu](02-lists/exercises.py) |
+| 03 | Python Dictionary | Key-value, `[]`, `get()`, key thiếu, cập nhật | [Knowledge summary](03-dictionaries/knowledge-summary.md) · [Code mẫu](03-dictionaries/exercises.py) |
+| 04 | Python `for` Loop | Duyệt List chứa Dictionary, `if`, `and`, cộng dồn | [Knowledge summary](04-loops/knowledge-summary.md) · [Bài thực hành](04-loops/exercises.py) |
+| 05 | Python `while` Loop | Điều kiện lặp, cập nhật trạng thái, tránh lặp vô hạn | Sẽ tạo khi học |
 | 06 | Functions | Tham số, giá trị trả về, tái sử dụng logic | Sẽ tạo khi học |
-| 07 | Error Handling | \`try\`/\`except\`, phân biệt lỗi dữ liệu và lỗi chương trình | Sẽ tạo khi học |
+| 07 | Error Handling | `try`/`except`, phân biệt lỗi dữ liệu và lỗi chương trình | Sẽ tạo khi học |
 | 08 | File I/O & Modules | Đọc/ghi file, import, tổ chức code | Sẽ tạo khi học |
 
 > Việc có tài liệu trên GitHub **không đồng nghĩa** đã hoàn thành bài thực hành độc lập. Các file trong 01–03 là code tham khảo để ôn tập; 04 có bài thực hành đã được trao đổi và đánh giá trong quá trình học.
@@ -45,10 +45,10 @@ Người học có thể giải thích lại từng concept bằng lời đơn g
 
 1. Học một concept theo Problem → Concept → Tiny Example → Code → Explain Back → Why.
 2. Tự trả lời, thực hành và được đánh giá. Chỉ chuyển tiếp khi đạt tối thiểu 8/10.
-3. Đọc \`knowledge-summary.md\` để ôn kiến thức; code mẫu không thay thế phần thực hành của người học.
+3. Đọc `knowledge-summary.md` để ôn kiến thức; code mẫu không thay thế phần thực hành của người học.
 4. Khi có bài làm được kiểm tra, bổ sung bằng chứng code/test và commit lên GitHub.
 5. Không đánh dấu module hay project hoàn thành chỉ vì đã tạo README.
 
 ## 9. Học tiếp nội dung nào?
 
-Sau \`for\` Loop, học \`while\` Loop, sau đó Functions và Error Handling. Khi có nền tảng Python, tiếp tục [Python for Data](../02-python-for-data/README.md).
+Sau `for` Loop, học `while` Loop, sau đó Functions và Error Handling. Khi có nền tảng Python, tiếp tục [Python for Data](../02-python-for-data/README.md).
