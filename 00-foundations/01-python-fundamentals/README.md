@@ -17,11 +17,11 @@ Một pipeline có thể đọc nhiều đơn hàng, nhưng nếu chưa hiểu b
 | 03 | Python Dictionary | Key-value, `[]`, `get()`, key thiếu, cập nhật | [Knowledge summary](03-dictionaries/knowledge-summary.md) · [Code mẫu](03-dictionaries/exercises.py) |
 | 04 | Python `for` Loop | Duyệt List chứa Dictionary, `if`, `and`, cộng dồn | [Knowledge summary](04-loops/knowledge-summary.md) · [Bài thực hành](04-loops/exercises.py) |
 | 05 | Python `while` Loop | Điều kiện lặp, slicing theo batch, cập nhật trạng thái, tránh lặp vô hạn | [Knowledge summary](05-while-loop/knowledge-summary.md) · [Bài thực hành](05-while-loop/exercises.py) |
-| 06 | Functions | Tham số, giá trị trả về, tái sử dụng logic | Sẽ tạo khi học |
+| 06 | Functions | `def`, parameters/arguments, `return`, scope cơ bản, tái sử dụng logic | [Knowledge summary](06-functions/knowledge-summary.md) · [Bài thực hành](06-functions/exercises.py) |
 | 07 | Error Handling | `try`/`except`, phân biệt lỗi dữ liệu và lỗi chương trình | Sẽ tạo khi học |
 | 08 | File I/O & Modules | Đọc/ghi file, import, tổ chức code | Sẽ tạo khi học |
 
-> Việc có tài liệu trên GitHub **không đồng nghĩa** đã hoàn thành bài thực hành độc lập. Các file trong 01–03 là code tham khảo để ôn tập; 04–05 có bài thực hành đã được trao đổi và đánh giá trong quá trình học.
+> Việc có tài liệu trên GitHub **không đồng nghĩa** đã hoàn thành bài thực hành độc lập. Các file trong 01–03 là code tham khảo để ôn tập; 04–06 có bài thực hành đã được trao đổi và đánh giá trong quá trình học.
 
 ## 4. Kiến thức cần có trước
 
@@ -51,4 +51,4 @@ Người học có thể giải thích lại từng concept bằng lời đơn g
 
 ## 9. Học tiếp nội dung nào?
 
-Sau `while` Loop, học Functions, rồi Error Handling. Khi có nền tảng Python, tiếp tục [Python for Data](../02-python-for-data/README.md).
+Sau Functions, học Error Handling, rồi File I/O & Modules. Khi có nền tảng Python, tiếp tục [Python for Data](../02-python-for-data/README.md).
